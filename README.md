@@ -6,8 +6,8 @@
 1. Клонируйте репозиторий с github (`git clone`)
 2. Создайте виртуальное окружение (`python -m venv env`)
 3. Установите зависимости `pip install -r requirements.txt`
-4. Создайте файл `settings.py` в папке `setting_box`
-5. Впишите в `settings.py` следующее:
+4. Создайте файл `.env` в корневой папке проекта.
+5. Впишите в `.env` следующее:
 ```
 API_KEY = 'Ваш API-ключ от openweathermap.org'
 ```

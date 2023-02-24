@@ -1,15 +1,16 @@
-import pytest
-from settings_box.config import API_KEY
 import requests
 from typing import Union
 
-@pytest.fixture
-def moscow_weather():
+
+def get_weather(city: str, api_key: str) -> float | None:
+    """Запрашивает на сайте погоды температуру."""
     weather_url = 'https://api.openweathermap.org/data/2.5/weather'
     params: dict[str, Union[float, str]] = {
-        'q': 'Moscow',
-        'appid': API_KEY,
+        'q': city,
+        'appid': api_key,
         'units': 'metric',
     }
     result = requests.get(weather_url, params=params)
+    if not result:
+        return None
     return result.json()['main']['temp']
