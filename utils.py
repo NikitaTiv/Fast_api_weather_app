@@ -1,11 +1,16 @@
 import requests
-from typing import Union
+from typing import TypedDict
+
+class Params(TypedDict):
+    q: str
+    appid: str
+    units: str
 
 
 def get_weather(city: str, api_key: str) -> float | None:
     """Запрашивает на сайте погоды температуру."""
     weather_url = 'https://api.openweathermap.org/data/2.5/weather'
-    params: dict[str, Union[float, str]] = {
+    params: Params = {
         'q': city,
         'appid': api_key,
         'units': 'metric',
